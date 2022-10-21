@@ -19,7 +19,7 @@ st.set_page_config(
     initial_sidebar_state = 'auto'
 )
 
-st.sidebar.image('logo.png')
+st.sidebar.image('images/logo.png')
 st.sidebar.title('Late Shipment Prediction')
 st.sidebar.write('---')
 
@@ -31,7 +31,7 @@ This app predicts the **Late Shipments**!
 st.write('---')
 
 # Load Dataset
-data_path = 'late_shipment_data.csv'
+data_path = 'data/late_shipment_data.csv'
 data_df = pd.read_csv(data_path, encoding = 'ISO-8859-1')
 data_df = data_df.drop(['Vendor INCO Term', 'Brand', 'Dosage', 'Dosage Form', 'Product Group', 'Sub Classification', 'ID', 'Managed By', 'Item Description', 'Molecule/Test Type', 'Manufacturing Site', 'First Line Designation', 'Line Item Insurance (USD)'], axis=1)
 data_df = data_df[data_df['Weight (Kilograms)'].notna()]
@@ -130,7 +130,7 @@ y = data_df['Late_delivery']
 
 # to retrain
 agree = st.checkbox('Check to retrain the model')
-filename = 'finalized_model.sav'
+filename = 'model/finalized_model.sav'
 if agree:
     # Build Regression Model
     model = RandomForestRegressor() 
