@@ -1,9 +1,10 @@
 FROM python:3.8.2-slim
 
 COPY app.py .
-COPY late_shipment_data.csv .
-COPY finalized_model.sav .
-COPY logo.png .
+COPY data/late_shipment_data.csv data/.
+COPY model/finalized_model.sav model/.
+COPY images/logo.png images/.
+COPY images/favicon.ico images/.
 COPY requirements.txt .
 
 RUN pip install -r requirements.txt
